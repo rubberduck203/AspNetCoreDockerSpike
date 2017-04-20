@@ -1,3 +1,30 @@
+# Asp.Net Core Demo Site
+
+Boilerplate asp.net core site.
+It is currently running on a subdirectory of theupsyde.net, but isn't really being used.
+More of a proof of concept for a possible future state of the site.
+
+The big thing here is how to use Docker as a build tool and also as a way to deploy Asp.Net core sites on CentOS 6.
+
+## Building
+
+Run `./build.sh` to build a new docker image containing the build artifacts the deployment docker uses.
+
+## Asp.Net Core Docker (deployment)
+
+*TODO: Hide this behind our firewall like we did for wekan.*
+
+Nginx proxies the /test/ directory to the docker container.
+In order for this to work properly, the ASPNETCORE_URLS environment variable must be setup to use the same directory structure.
+Otherwise, framework resolved URLs won't generate properly.
+
+https://github.com/aspnet/Hosting/issues/815
+
+
+```bash
+docker run --name aspcoretest -p 8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
+```
+
 # Welcome to ASP.NET Core
 
 We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
