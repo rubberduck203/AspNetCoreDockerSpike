@@ -22,7 +22,7 @@ https://github.com/aspnet/Hosting/issues/815
 
 
 ```bash
-docker run --name aspcoretest -p 8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
+docker run --name aspcoretest -p 127.0.0.1:8080:80 -d -e "ASPNETCORE_URLS=http://+:80/test" rubberduck/upsyde
 ```
 
 # Welcome to ASP.NET Core
